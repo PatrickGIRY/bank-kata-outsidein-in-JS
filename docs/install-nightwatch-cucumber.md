@@ -45,7 +45,7 @@ mkdir features
 npm install babel-core babel-polyfill babel-preset-env --save-dev
 ```
 
-Add [`.babelrc`]('../.babelrc')
+Add [`.babelrc`](../.babelrc)
 
 
 ## Add reporting
