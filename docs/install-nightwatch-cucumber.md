@@ -31,32 +31,42 @@ npm i -D chromedriver
 mkdir features
 ```
 
-## Add script to `package.json`
+## Add script to [`package.json`](../package.json)
 
 ```
 "scripts": {
-  ...
   "e2e-test": "nightwatch"
-  ...
 },
 ```
 
+## Add `babel`
+
+```
+npm install babel-core babel-polyfill babel-preset-env --save-dev
+```
+
+Add [`.babelrc`]('../.batchrc')
+
+
+## Add reporting
+
+Install the floowing dependencies :
+```
+npm i -D cucumber-html-reporter
+npm i -D npm-run-all
+```
+Complete [`package.json`](../package.json) with the flowing scripts :
+
+```
+"scripts": {
+  "e2e": "npm-run-all e2e-test e2e-report --continue-on-error",
+  "e2e-test": "nightwatch",
+  "e2e-report": "node create-html-report.js"
+},
+```
+
+Create the script [`create-html-report.js`](../create-html-report.js)
+
 ## Configure `nightwatch`
 
-Create a `nightwatch.conf.js` in project root.
-
-```
-touch nightwatch.conf.js
-```
-
-Add `require('nightwatch-cucumber')` with `cucumberArgs`.
-
-```
-require('nightwatch-cucumber')({
-  cucumberArgs: [ '--require-module', 'babel-core/register'
-                , '--require', 'features/step_definitions'
-                , '--format', 'json:reports/cucumber.json'
-                , 'features'
-                ]
-});
-```
+Create a [`nightwatch.conf.js`](../nightwatch.conf.js) in project root.
