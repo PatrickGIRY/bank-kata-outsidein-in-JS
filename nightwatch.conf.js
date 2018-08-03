@@ -3,6 +3,7 @@ const chromedriver = require('chromedriver');
 
 require('nightwatch-cucumber')({
   cucumberArgs: [ '--require-module', 'babel-core/register'
+                , '--require-module', 'babel-polyfill'
                 , '--require', 'features/step_definitions'
                 , '--format', 'json:reports/cucumber.json'
                 , 'features'
@@ -12,6 +13,7 @@ require('nightwatch-cucumber')({
 module.exports = {
   output_folder: 'reports',
   custom_assertions_path: '',
+  page_objects_path: 'page-objects',
   live_output: false,
   disable_colors: false,
   selenium: {
