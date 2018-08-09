@@ -25,13 +25,16 @@ module.exports = {
   },
   test_settings: {
     default: {
-      launch_url: 'http://localhost:8087',
+      launch_url: 'http://localhost:8080',
       selenium_port: 4444,
       selenium_host: '127.0.0.1',
       screenshots : {
         enabled : true,
         on_failure : true,
         path: 'screenshots/default'
+      },
+      globals: {
+        waitForConditionTimeout: 30000,
       },
       desiredCapabilities: {
         browserName: 'chrome',
