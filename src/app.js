@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from 'react-dom';
-import Greeting from "./greeting";
+import AccountStatement from "./accountStatement";
 
 const mountPoint = document.getElementById('app');
 
 ReactDOM.render(
-  <Greeting name="World"/>,
+  <AccountStatement />,
   mountPoint
 );
